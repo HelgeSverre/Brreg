@@ -4,9 +4,9 @@
 namespace HelgeSverre\Brreg;
 
 
-use App\Transformers\BrregCompanyDataTransformer;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use HelgeSverre\Brreg\Transformers\BrregCompanyDataTransformer;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;

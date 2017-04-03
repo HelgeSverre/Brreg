@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Transformers;
+namespace HelgeSverre\Brreg\Transformers;
 
 
 use League\Fractal\TransformerAbstract;
