@@ -11,11 +11,11 @@ Library for connecting to Brreg api
 
 Install using composer:
 
-    composer require helgesverre/brreg
+    composer require helgesverre/brreg:dev-master
 
 Add the service provider in `config/app.php`:
 
-    'HelgeSverre\Brreg\BrregServiceProvider',
+    HelgeSverre\Brreg\BrregDataServiceProvider::class,
 
 Usage
 -----
