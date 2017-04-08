@@ -50,8 +50,6 @@ $companies = $brreg->searchByName("Acme", 1, 20);
 You can also fetch company data by the Registration number (Org Nr):
 
 
-By default, only 10 results are returned, however this can be changed as such:
-
 ```php
 
 $companyData = $brreg->getCompanyData(814114562);
