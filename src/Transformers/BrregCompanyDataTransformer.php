@@ -19,6 +19,7 @@ class BrregCompanyDataTransformer extends TransformerAbstract
             "visiting_address" => (isset($company->forretningsadresse)) ? $this->parseAddress($company->forretningsadresse) : null,
             "mailing_address" => (isset($company->postadresse)) ? $this->parseAddress($company->postadresse) : null,
             "bankrupt" => $company->konkurs == "N" ? 0 : 1,
+            "vat_registered" => $company->registrertIMvaregisteret == "J" ? 1 : 0,
             "business_sectors" => $this->parseBusinessSector($company),
             "business_type" => $company->organisasjonsform,
             "website" => isset($company->hjemmeside) ? $company->hjemmeside : null
