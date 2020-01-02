@@ -43,22 +43,24 @@ class BrregDataService
                     "navn" => $name,
                 ]
             ])->getBody()->getContents();
+
         } catch (ClientException $exception) {
             return false;
         }
 
-        $json = json_decode($response);
+        $json = json_decode($response, true);
 
-        if (empty($json->data)) {
-            return ["data" => []];
-        }
-
-        return $this->transform($json->data);
+        return $this->fractal
+            ->createData(
+                new Collection(
+                    $json["_embedded"]["enheter"],
+                    new BrregCompanyDataTransformer()
+                )
+            )
+            ->toArray();
     }
 
     /**
-     *
-     *
      * @param $registrationNumber
      * @return array|false array of company data on success, false if company does not exist
      */
@@ -74,7 +76,16 @@ class BrregDataService
             return false;
         }
 
-        return $this->transform(json_decode($response));
+        $json = json_decode($response, true);
+
+        return $this->fractal
+            ->createData(
+                new Item(
+                    $json,
+                    new BrregCompanyDataTransformer()
+                )
+            )
+            ->toArray();
     }
 
     public function sanitizeRegistrationNumber($registrationNumber)
