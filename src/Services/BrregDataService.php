@@ -1,7 +1,7 @@
 <?php
 
 
-namespace HelgeSverre\Brreg;
+namespace HelgeSverre\Brreg\Services;
 
 
 use GuzzleHttp\Client;
@@ -11,9 +11,9 @@ use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 
-class BrregService
+class BrregDataService
 {
-    protected $apiEndpoint = "https://data.brreg.no/enhetsregisteret/enhet/";
+    protected $apiEndpoint = "https://data.brreg.no/enhetsregisteret/api/enheter/";
     protected $format = "json";
 
     /**
@@ -40,7 +40,7 @@ class BrregService
                 "query" => [
                     "page" => $page,
                     "size" => $size,
-                    "\$filter" => "startswith(navn, '$name')"
+                    "navn" => $name,
                 ]
             ])->getBody()->getContents();
         } catch (ClientException $exception) {

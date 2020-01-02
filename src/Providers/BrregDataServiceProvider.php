@@ -1,8 +1,9 @@
 <?php
 
-namespace HelgeSverre\Brreg;
+namespace HelgeSverre\Brreg\Providers;
 
 use GuzzleHttp\Client;
+use HelgeSverre\Brreg\Services\BrregDataService;
 use Illuminate\Support\ServiceProvider;
 use League\Fractal\Manager;
 
@@ -25,8 +26,8 @@ class BrregDataServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(BrregService::class, function () {
-            return new BrregService(new Manager(), new Client());
+        $this->app->singleton(BrregDataService::class, function () {
+            return new BrregDataService(new Manager(), new Client());
         });
     }
 }

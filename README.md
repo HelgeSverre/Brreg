@@ -23,7 +23,7 @@ Usage
 
 ```php
 
-Route::get("/companies", function (Request $request, \HelgeSverre\Brreg\BrregService $brreg) {
+Route::get("/companies", function (Request $request, \HelgeSverre\Brreg\BrregDataService $brreg) {
 
     $searchTerm = $request->input("q");
     
