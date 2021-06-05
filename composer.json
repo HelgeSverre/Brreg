@@ -21,8 +21,8 @@
     "license": "MIT",
     "minimum-stability": "stable",
     "autoload": {
-        "psr-0": {
-            "HelgeSverre\\Brreg": "src/"
+        "psr-4": {
+            "HelgeSverre\\Brreg\\": "src/"
         }
     }
 }
